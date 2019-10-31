@@ -17,7 +17,7 @@ body {
 #sconeHeader {
   display: flex;
   justify-content: center;
-  background: #0097A7;
+  background: #607D8B;
   color: white;
   padding: .25em;
   border-radius: 4em;
@@ -38,6 +38,10 @@ em {
   border-radius: 1em;
   border: solid white 3px;
   box-shadow: 5px 10px 10px black;
+  color: white;
+}
+
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active {
   color: white;
 }
 
