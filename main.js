@@ -41,28 +41,43 @@ const printToDom = (divId, stringToPrint) => {
   $(`#${divId}`).html(stringToPrint);
 };
 
-// const eventListener = () => {
-//   $('body').on('click', 'button', (e) => {
-//     const recipeToCalculate = e.target.id;
-//     e.preventDefault();
-//     printToDom('recipeZone', recipeToCalculate);
-//   })
-// };
-
 const sconeRecipe = () => {
   $('body').on('click', 'button', (e) => {
     const  largeSconeQuantity = $('#largeScone').val();
-    const smallSconeQuantity = $('#smallScone').val();
+    let smallSconeQuantity = $('#smallScone').val();
     const recipeToCalculate = e.target.id;
     e.preventDefault();
     let domString = '';
+    if (smallSconeQuantity > 8 && recipeToCalculate === 'blueberry') {
+      const totalMini = smallSconeQuantity * 6;
+      window.alert(`WARNING: This recipe will make ${totalMini} mini bluberry scones. Please make sure you have entered the correct number of PACKS before continuing.`);
+    } else if (smallSconeQuantity > 8 && recipeToCalculate === 'orange') {
+      const totalMini = smallSconeQuantity * 3;
+      window.alert(`WARNING: This recipe will make ${totalMini} mini orange scones. Please make sure you have entered the correct number of PACKS before continuing.`);
+    };
 
     for (let i = 0; i < sconeTypes.length; i ++) {
+      if (smallSconeQuantity > 0 && recipeToCalculate === 'apple') {
+        window.alert('WARNING: You can not calculate mini scones for apple! Quantity set to zero.');
+        $('#smallScone').val(0);
+        smallSconeQuantity = 0;
+      };
+
       if (recipeToCalculate === sconeTypes[i].type) {
-        domString += largeSconeQuantity + smallSconeQuantity + sconeTypes[i].ingredType;
+        const totalCream = ((largeSconeQuantity * sconeTypes[i].heavyCreamLS) + (smallSconeQuantity * sconeTypes[i].heavyCreamSS));
+        const totalMix = ((largeSconeQuantity * sconeTypes[i].mixLS) + (smallSconeQuantity * sconeTypes[i].mixSS));
+        const totalAdd = ((largeSconeQuantity * sconeTypes[i].ingredLS) + (smallSconeQuantity * sconeTypes[i].ingredSS));
+
+        domString += `
+        <div id="recipeContainer">
+          <h2>Recipe</h2>
+          <h3><b>Heavy Cream:</b> ${totalCream} grams</h3>
+          <h3><b>Scone Mix:</b> ${totalMix} grams</h3>
+          <h3><b>${sconeTypes[i].ingredType}</b> ${totalAdd} grams</h3>
+        </div>`;
       }
+      printToDom('recipeZone', domString);
     }
-    printToDom('recipeZone', domString);
   })
 };
 
