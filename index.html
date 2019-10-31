@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./main.css">
+  <title>Scone Calculator 2.0</title>
+</head>
+<body>
+  <div class="container">
+    <div id="sconeHeader">
+    <header>
+        <h1>Scone Recipe Calculator</h1>
+    </header>
+    </div>
+    <div class='instructions'>
+        <p><strong>NOTE:</strong> Mini Scone Pack Quantity <strong>will calculate</strong> 6 mini blueberry scones <em>per pack</em> and 3 mini orange scones <em>per pack</em>.</p>
+        <p>Any value added to the cinnamon scone mini scones will calculate for 3.</p>
+    </div>
+    <form>
+        <div class='form row'>
+            <label for='largeScone'>Large Scone Quantity: </label><input type='number' id='largeScone' /> 
+        </div>
+
+        <div class='form row'>
+            <label for='smallScone'>Mini Scone <strong><em>Pack</em></strong> Quantitiy: </label> <input type='number' id='smallScone' value='' />
+        </div>
+
+        <div class='form row'>
+          <div class="buttonContainer">
+            <button class="btn btn-primary" id="blueberry">Blueberry Scones</button>
+            <button class="btn btn-danger" id="cinnamon">Cinnamon Scones</button>
+            <button class="btn btn-warning" id="orange">Orange Scones</button>
+            <button class="btn btn-success" id="apple">Apple Scones</button>
+          </div>    
+        </div>
+  </form>
+    <div id="recipeContainer">
+        <h2>Recipe</h2>
+        <div id="recipeZone"></div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
